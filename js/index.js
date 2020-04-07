@@ -1,10 +1,8 @@
 // Your code goes here
 
-// NOT USED: drag/drop, load, focus, scroll, select, resize
+// USED: mouseenter, mouseleave, click, keydown, wheel, error, dbclick, select
 
-// USED: mouseenter, mouseleave, click, keydown, wheel, error, dbclick
-
-// mouseenter, mouseleave
+// mouseenter, mouseleave, preventDefault()
 function navLinksHover() {
     const navLink = document.querySelectorAll('a.nav-link')[0];
         navLink.addEventListener('mouseenter', (event) => {
@@ -12,6 +10,9 @@ function navLinksHover() {
         });
         navLink.addEventListener('mouseleave', (event) => {
         event.target.style.backgroundColor = 'white';    
+        });
+        navLink.addEventListener('click', (event) => {
+        event.preventDefault()
         });
 }
 navLinksHover()
@@ -80,3 +81,11 @@ bigFun.addEventListener('dblclick', function (e) {
 });
 
 
+// select
+function textSelect(event) {
+    const log1 = document.getElementById('log1');
+    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    log1.textContent = `YOU SELECTED THE FOLLOWING: ${selection}`;
+}
+const input = document.querySelector('input');
+input.addEventListener('select', textSelect);
