@@ -337,6 +337,9 @@ img {
     margin: 0 auto 30px;
   }
 }
+.home .content-pick .destination .btnContainer {
+  border: 1px solid red;
+}
 .home .content-pick .destination .btn {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;

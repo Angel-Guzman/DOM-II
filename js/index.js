@@ -21,11 +21,29 @@ navLinksHover()
 // click
 function btnClickColor() {
     const buttons = document.querySelectorAll('div.btn')[0];
+    const buttonsContainer = document.querySelector('div.btnContainer');
+        // buttons.addEventListener('mouseenter', (event) => {
+        // event.target.style.backgroundColor = 'white';    
+        // });
+
         buttons.addEventListener('click', (event) => {
         event.target.style.backgroundColor = 'purple';
+        event.stopPropagation()
         })
+        buttonsContainer.addEventListener('mouseenter', (event) => {
+        event.target.style.backgroundColor = 'green';    
+        event.target.style.borderColor = 'green';  
+        });
         buttons.addEventListener('mouseleave', (event) => {
-            event.target.style.backgroundColor = '#17A2B8';    
+        event.target.style.backgroundColor = '#17A2B8';    
+        });
+        buttonsContainer.addEventListener('mouseleave', (event) => {
+        event.target.style.backgroundColor = 'white';    
+        event.target.style.borderColor = 'red';  
+        });
+        buttonsContainer.addEventListener('click', (event) => {
+        event.target.style.backgroundColor = 'yellow';    
+        event.target.style.borderColor = 'yellow';  
         });
 }
 btnClickColor()
